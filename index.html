@@ -49,6 +49,7 @@
   }
   .btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35);}
   .btn-solid{background:var(--brick);color:var(--white);}
+  .post-btn-short{display:none;}
   .icon-btn{
     width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;
     background:rgba(255,255,255,0.1);color:var(--white);font-size:16px;cursor:pointer;border:none;
@@ -208,7 +209,87 @@
   .compare-table th{color:#7A7364;font-weight:600;width:34%;}
   .compare-error{color:var(--brick);font-size:13px;margin-top:6px;display:none;}
 
+  .match-row{
+    margin-top:2px;padding-top:9px;border-top:1px dashed var(--line);
+    display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#7A7364;
+  }
+  .match-row .pct{font-weight:700;color:var(--good);font-family:'Fraunces',serif;font-size:14px;}
+  .match-row .pct.low{color:var(--brick);}
+
+  .details-hero{
+    height:180px;border-radius:12px;margin-bottom:16px;
+    background:linear-gradient(135deg,#8FA89C,#5C7A6C);position:relative;
+  }
+  .details-hero .price-tag{position:absolute;top:12px;right:12px;}
+  .details-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin:16px 0;
+  }
+  .details-grid div{font-size:13.5px;color:var(--ink);}
+  .details-grid div b{display:block;font-size:11px;color:#9A927D;font-weight:600;margin-bottom:2px;}
+  .details-amenities{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+
+  /* Details full page */
+  .details-page-topbar{
+    padding:16px 40px;background:var(--white);border-bottom:1px solid var(--line);
+    position:sticky;top:76px;z-index:40;
+  }
+  .details-page-content{
+    max-width:760px;margin:0 auto;padding:28px 40px 60px;
+  }
+  .gallery-main{
+    height:320px;border-radius:14px;overflow:hidden;margin-bottom:10px;position:relative;
+  }
+  .gallery-main img, .gallery-main .ph{width:100%;height:100%;object-fit:cover;display:flex;
+    align-items:center;justify-content:center;color:rgba(255,255,255,0.6);font-size:13px;}
+  .gallery-thumbs{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;}
+  .gallery-thumbs .thumb{
+    width:74px;height:56px;border-radius:8px;overflow:hidden;flex:0 0 auto;cursor:pointer;
+    border:2px solid transparent;opacity:0.75;
+  }
+  .gallery-thumbs .thumb.active{border-color:var(--brick);opacity:1;}
+  .gallery-thumbs .thumb img, .gallery-thumbs .thumb .ph{width:100%;height:100%;object-fit:cover;
+    display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:10px;}
+
+  .report-flag-btn{
+    position:absolute;bottom:10px;right:50px;width:28px;height:28px;border-radius:50%;
+    background:rgba(255,253,249,0.92);display:flex;align-items:center;justify-content:center;
+    font-size:12px;cursor:pointer;color:var(--brick);border:none;
+  }
+
+  .badge-row{position:absolute;bottom:10px;left:10px;display:flex;gap:6px;}
+  .verified-badge{
+    background:var(--good);color:var(--white);font-size:10.5px;font-weight:700;
+    padding:4px 9px;border-radius:999px;display:flex;align-items:center;gap:3px;
+  }
+  .video-badge{
+    background:rgba(21,41,37,0.85);color:var(--white);font-size:10.5px;font-weight:600;
+    padding:4px 9px;border-radius:999px;
+  }
+  .btn-icon-only{flex:0 0 auto !important;width:38px;padding:8px 0 !important;text-align:center;}
+  .btn-report{background:#E8A33D;color:var(--white);border:none;}
+
+  .stars{font-size:20px;letter-spacing:2px;cursor:pointer;color:var(--line);}
+  .stars .on{color:var(--gold-star,#C79A45);}
+  .rating-row{display:flex;align-items:center;gap:8px;font-size:13.5px;margin-bottom:14px;}
+  .rating-row .score{font-family:'Fraunces',serif;font-weight:700;color:var(--forest-dark);font-size:16px;}
+
+  .util-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 20px;margin-bottom:16px;}
+  .util-grid div{font-size:13px;}
+  .util-grid div b{display:block;font-size:11px;color:#9A927D;font-weight:600;margin-bottom:2px;}
+
+  .video-preview{
+    height:140px;border:1.5px dashed var(--line);border-radius:10px;display:flex;
+    align-items:center;justify-content:center;color:#9A927D;font-size:13px;margin:10px 0 16px;
+    display:none;
+  }
+  .video-preview.show{display:flex;}
+
+  .masked-number{font-family:'Fraunces',serif;font-size:18px;margin:10px 0;color:var(--forest-dark);}
+
   @media (max-width:640px){
+    .details-page-topbar{padding:12px 16px;top:70px;}
+    .details-page-content{padding:18px 16px 40px;}
+    .gallery-main{height:220px;}
     .topbar{padding:12px 16px;gap:8px;}
     .brand{gap:8px;}
     .brand-mark{width:34px;height:34px;font-size:16px;border-radius:8px;}
@@ -217,6 +298,8 @@
     .top-actions{gap:6px;}
     .icon-btn{width:32px;height:32px;font-size:14px;}
     .btn{padding:7px 12px;font-size:12.5px;}
+    .post-btn-full{display:none;}
+    .post-btn-short{display:inline;}
 
     .hero{height:220px;}
     .hero-overlay h1{font-size:22px;}
@@ -264,12 +347,15 @@
       </div>
     </div>
     <div class="top-actions">
+      <a class="btn btn-ghost" onclick="showFavorites()"><span class="post-btn-full">♥ Favorites</span><span class="post-btn-short">♥</span></a>
+      <a class="btn btn-solid" id="postBtn" onclick="openModal('postModal')"><span class="post-btn-full">+ Post Your Property</span><span class="post-btn-short">+ Post</span></a>
       <button class="icon-btn" title="Settings" onclick="openModal('settingsModal')">⚙</button>
       <a class="btn btn-ghost" onclick="openModal('loginModal')">Log In</a>
       <a class="btn btn-solid" onclick="openModal('signupModal')">Sign Up</a>
     </div>
   </div>
 
+  <div id="mainView">
   <div class="hero">
     <div class="hero-overlay">
       <h1>Welcome To Smart House Rental</h1>
@@ -343,11 +429,13 @@
     </div>
     <div class="advcheck-row">
       <label class="advcheck"><input type="checkbox" id="adv-lift"> Lift</label>
-      <label class="advcheck"><input type="checkbox"> Parking</label>
-      <label class="advcheck"><input type="checkbox"> Generator</label>
-      <label class="advcheck"><input type="checkbox"> Gas Line</label>
-      <label class="advcheck"><input type="checkbox"> Furnished</label>
-      <label class="advcheck"><input type="checkbox"> Balcony</label>
+      <label class="advcheck"><input type="checkbox" id="adv-parking"> Parking</label>
+      <label class="advcheck"><input type="checkbox" id="adv-generator"> Generator</label>
+      <label class="advcheck"><input type="checkbox" id="adv-gas"> Line Gas (not cylinder)</label>
+      <label class="advcheck"><input type="checkbox" id="adv-furnished"> Furnished</label>
+      <label class="advcheck"><input type="checkbox" id="adv-balcony"> Balcony</label>
+      <label class="advcheck"><input type="checkbox" id="adv-water"> Water 24/7</label>
+      <label class="advcheck"><input type="checkbox" id="adv-verified"> Verified Only</label>
     </div>
     <div class="advactions">
       <button class="btn btn-fill" onclick="applyAdvanced()">Apply Filters</button>
@@ -361,6 +449,15 @@
   </div>
 
   <div id="grid" class="grid"></div>
+  </div>
+
+  <!-- Details Page -->
+  <div id="detailsPage" style="display:none;">
+    <div class="details-page-topbar">
+      <button class="btn btn-outline" onclick="backToListings()">← Back to Listings</button>
+    </div>
+    <div id="detailsPageContent" class="details-page-content"></div>
+  </div>
 
   <!-- Settings Modal -->
   <div class="modal-backdrop" id="settingsModal">
@@ -374,8 +471,6 @@
         </select>
       </div>
       <div class="advcheck-row" style="margin-bottom:16px;">
-        <label class="advcheck"><input type="checkbox" checked> SMS Notifications</label>
-        <label class="advcheck"><input type="checkbox" checked> New Listing Alerts</label>
         <label class="advcheck"><input type="checkbox"> Dark Mode</label>
       </div>
       <button class="modal-submit" onclick="alert('Demo only — settings not connected yet.')">Save Changes</button>
@@ -428,6 +523,137 @@
     </div>
   </div>
 
+  <!-- Report Modal -->
+  <div class="modal-backdrop" id="reportModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('reportModal')">✕</button>
+      <h2>Report This Listing</h2>
+      <div class="sub">Help keep listings accurate for everyone</div>
+      <button class="modal-submit" style="background:var(--brick);margin-bottom:10px;" onclick="submitReport('rented')">🏠 Report as Already Rented</button>
+      <button class="modal-submit" style="background:var(--ink);" onclick="submitReport('fake')">⚠ Report as Fake / Misleading</button>
+      <div class="modal-note">After enough reports, this listing is automatically hidden while our team reviews it.</div>
+    </div>
+  </div>
+
+  <!-- Review Modal -->
+  <div class="modal-backdrop" id="reviewModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('reviewModal')">✕</button>
+      <h2>Write a Review</h2>
+      <div class="sub">Rate the flat and the landlord's behavior</div>
+      <div class="field">
+        <label>Your Rating</label>
+        <div class="stars" id="starPicker">
+          <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>Comment</label>
+        <textarea rows="3" placeholder="Gas, water, landlord behavior, anything else..." style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;background:var(--sand);color:var(--ink);resize:vertical;"></textarea>
+      </div>
+      <button class="modal-submit" onclick="alert('Demo only — review not connected yet. Thanks for the feedback!'); closeModal('reviewModal');">Submit Review</button>
+    </div>
+  </div>
+
+  <!-- Schedule Visit Modal -->
+  <div class="modal-backdrop" id="visitModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('visitModal')">✕</button>
+      <h2>Schedule a Visit</h2>
+      <div class="sub">Pick a time that works for you</div>
+      <div class="field"><label>Preferred Date</label><input type="date"></div>
+      <div class="field">
+        <label>Time Slot</label>
+        <select style="width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;background:var(--sand);color:var(--ink);">
+          <option>Morning (10 AM - 12 PM)</option>
+          <option>Afternoon (2 PM - 4 PM)</option>
+          <option>Evening (5 PM - 7 PM)</option>
+        </select>
+      </div>
+      <button class="modal-submit" onclick="alert('Demo only — visit request sent to the landowner (not connected yet).'); closeModal('visitModal');">Request Visit</button>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contactModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('contactModal')">✕</button>
+      <h2>Contact Landowner</h2>
+      <div class="sub">Call the landowner directly</div>
+      <div id="contactBody"></div>
+    </div>
+  </div>
+
+
+
+  <!-- Post Your Property Modal -->
+  <div class="modal-backdrop" id="postModal">
+    <div class="modal wide">
+      <button class="modal-close" onclick="closeModal('postModal')">✕</button>
+      <h2>Post Your Property</h2>
+      <div class="sub">Fill in the details — your listing goes live instantly</div>
+
+      <div class="field"><label>Title</label><input id="post-title" placeholder="e.g. 2 Bedroom Flat, Mirpur-10"></div>
+
+      <div class="advgrid" style="margin-bottom:0;">
+        <div class="advfield">
+          <label>Category</label>
+          <select id="post-category" onchange="togglePostFields()">
+            <option value="family">Family</option>
+            <option value="bachelor">Bachelor</option>
+            <option value="sublet">Sublet</option>
+          </select>
+        </div>
+        <div class="advfield" id="post-gender-wrap" style="display:none;">
+          <label>Gender</label>
+          <select id="post-gender"><option value="male">Male</option><option value="female">Female</option></select>
+        </div>
+        <div class="advfield">
+          <label>Pricing Type</label>
+          <select id="post-pricing"><option value="negotiable">Negotiable</option><option value="fixed">Fixed</option></select>
+        </div>
+        <div class="advfield">
+          <label>Location</label>
+          <select id="post-location">
+            <option>Mirpur</option><option>Dhanmondi</option><option>Uttara</option><option>Gulshan</option>
+            <option>Banani</option><option>Mohammadpur</option><option>Bashundhara</option><option>Motijheel</option>
+            <option>Old Dhaka</option><option>Badda</option>
+          </select>
+        </div>
+        <div class="advfield"><label>Monthly Rent (৳)</label><input type="number" id="post-price" placeholder="e.g. 15000"></div>
+        <div class="advfield"><label>Bedrooms</label><input type="number" id="post-bed" placeholder="2"></div>
+        <div class="advfield"><label>Bathrooms</label><input type="number" id="post-bath" placeholder="2"></div>
+        <div class="advfield"><label>Gas Service</label>
+          <select id="post-gastype"><option value="Line Gas">Line Gas</option><option value="Cylinder Gas">Cylinder Gas</option></select>
+        </div>
+      </div>
+
+      <div class="advcheck-row" style="margin-top:14px;">
+        <label class="advcheck"><input type="checkbox" id="post-lift"> Lift</label>
+        <label class="advcheck"><input type="checkbox" id="post-parking"> Parking</label>
+        <label class="advcheck"><input type="checkbox" id="post-generator"> Generator</label>
+        <label class="advcheck"><input type="checkbox" id="post-furnished"> Furnished</label>
+        <label class="advcheck"><input type="checkbox" id="post-balcony"> Balcony</label>
+        <label class="advcheck"><input type="checkbox" id="post-water"> Water 24/7</label>
+      </div>
+
+      <div class="advgrid" id="post-bachelor-policy" style="display:none;">
+        <div class="advfield"><label>Gate Closing Time</label><input id="post-gatetime" placeholder="e.g. 10:00 PM"></div>
+        <div class="advfield" style="display:flex;align-items:flex-end;">
+          <label class="advcheck"><input type="checkbox" id="post-guests"> Guests Allowed</label>
+        </div>
+      </div>
+
+      <div class="field" style="margin-top:14px;"><label>Contact Phone Number</label><input type="tel" id="post-phone" placeholder="01XXXXXXXXX"></div>
+      <div class="field"><label>Building's Outside Photo <span style="color:var(--brick);font-weight:700;">(Required)</span></label><input type="file" accept="image/*" id="post-outside-photo" required></div>
+      <div class="field"><label>Other Photos</label><input type="file" multiple accept="image/*" id="post-other-photos"></div>
+      <div class="field"><label>30s Walkthrough Video (optional)</label><input type="file" accept="video/*"></div>
+
+      <button class="modal-submit" onclick="submitPost()">Post My Property</button>
+      <div class="modal-note">Every new post is reviewed by an admin before it goes live. Verified badge comes separately after NID/utility bill check.</div>
+    </div>
+  </div>
+
 <script>
 const listings = [
   {id:'SHR-10245', title:'2 Bedroom Flat, Mirpur-10', loc:'Mirpur, Dhaka · 3rd Floor', location:'Mirpur', price:15000, pricing:'negotiable', category:'family', gender:null, bed:2, bath:2, lift:true, tags:['Family','Gas + Generator']},
@@ -456,7 +682,37 @@ const listings = [
   {id:'SHR-10549', title:'Sublet Room, Old Dhaka', loc:'Old Dhaka, Dhaka · 1st Floor', location:'Old Dhaka', price:6000, pricing:'fixed', category:'sublet', gender:'female', bed:1, bath:1, lift:false, tags:['Sublet','Female']}
 ];
 
-let state = {category:'all', gender:null, pricing:null, sort:'', adv:null, location:''};
+listings.forEach((l, i) => {
+  l.status = 'approved';
+  l.photos = [
+    'linear-gradient(135deg,#8FA89C,#5C7A6C)',
+    'linear-gradient(135deg,#C79A45,#B8542E)',
+    'linear-gradient(135deg,#9AA7C2,#5C6E8C)',
+    'linear-gradient(135deg,#D8CDB4,#B8542E)'
+  ];
+  l.parking = l.tags.includes('Parking') || i % 3 === 0;
+  l.generator = l.tags.some(t=>t.includes('Generator')) || i % 4 === 0;
+  l.gasLine = l.tags.some(t=>t.includes('Gas')) || i % 2 === 0;
+  l.furnished = l.tags.includes('Furnished') || i % 5 === 0;
+  l.balcony = i % 2 === 1;
+  l.verified = i % 3 !== 2;
+  l.rating = (3.6 + (i % 5) * 0.3).toFixed(1);
+  l.reviewCount = 4 + (i * 3) % 20;
+  l.gasType = l.gasLine ? 'Line Gas' : 'Cylinder Gas';
+  l.water247 = i % 2 === 0;
+  l.hasVideo = i % 2 === 0;
+  if(l.category === 'bachelor' || l.category === 'sublet'){
+    l.gateTime = (i % 2 === 0) ? '10:00 PM' : '11:30 PM';
+    l.guestsAllowed = i % 3 !== 0;
+  } else {
+    l.gateTime = null;
+    l.guestsAllowed = null;
+  }
+});
+
+let favoriteIds = new Set();
+
+let state = {category:'all', gender:null, pricing:null, sort:'', adv:null, location:'', showFavorites:false};
 
 function chipReset(){
   document.querySelectorAll('.filterbar .chip').forEach(c=>c.classList.remove('active'));
@@ -464,7 +720,7 @@ function chipReset(){
 
 function setCategory(cat){
   chipReset();
-  state.category = cat; state.pricing = null; state.gender = null;
+  state.category = cat; state.pricing = null; state.gender = null; state.showFavorites = false;
   document.getElementById('chip-'+cat).classList.add('active');
   const gb = document.getElementById('genderBar');
   if(cat==='sublet' || cat==='bachelor'){
@@ -493,7 +749,7 @@ function setGender(g){
 
 function setPricing(p){
   chipReset();
-  state.category='all'; state.gender=null; state.pricing=p;
+  state.category='all'; state.gender=null; state.pricing=p; state.showFavorites = false;
   document.getElementById('chip-'+p).classList.add('active');
   document.getElementById('genderBar').classList.remove('show');
   document.getElementById('listTitle').textContent = p.charAt(0).toUpperCase()+p.slice(1)+' Listings';
@@ -511,9 +767,16 @@ function applyAdvanced(){
   const min = document.getElementById('adv-min').value;
   const max = document.getElementById('adv-max').value;
   const lift = document.getElementById('adv-lift').checked;
-  state.adv = {bed, bath, min, max, lift};
+  const parking = document.getElementById('adv-parking').checked;
+  const generator = document.getElementById('adv-generator').checked;
+  const gas = document.getElementById('adv-gas').checked;
+  const furnished = document.getElementById('adv-furnished').checked;
+  const balcony = document.getElementById('adv-balcony').checked;
+  const water = document.getElementById('adv-water').checked;
+  const verifiedOnly = document.getElementById('adv-verified').checked;
+  state.adv = {bed, bath, min, max, lift, parking, generator, gas, furnished, balcony, water, verifiedOnly};
   document.getElementById('listTitle').textContent = 'Advanced Search Results';
-  document.getElementById('listSub').textContent = 'Showing listings matching your criteria';
+  document.getElementById('listSub').textContent = 'Sorted by how closely each listing matches your criteria';
   document.getElementById('advPanel').classList.remove('show');
   renderGrid();
 }
@@ -523,7 +786,9 @@ function clearAdvanced(){
   document.getElementById('adv-bath').value='';
   document.getElementById('adv-min').value='';
   document.getElementById('adv-max').value='';
-  document.getElementById('adv-lift').checked=false;
+  ['adv-lift','adv-parking','adv-generator','adv-gas','adv-furnished','adv-balcony','adv-water','adv-verified'].forEach(id=>{
+    document.getElementById(id).checked=false;
+  });
   state.adv = null;
   renderGrid();
 }
@@ -538,7 +803,23 @@ function applySort(){
   renderGrid();
 }
 
+function showFavorites(){
+  chipReset();
+  state.showFavorites = true;
+  document.getElementById('genderBar').classList.remove('show');
+  document.getElementById('listTitle').textContent = 'Your Favorites';
+  document.getElementById('listSub').textContent = favoriteIds.size ? 'Homes you\'ve saved' : 'You haven\'t saved any homes yet — tap the ♡ on a listing to save it';
+  renderGrid();
+}
+
+function toggleFavorite(id){
+  if(favoriteIds.has(id)) favoriteIds.delete(id);
+  else favoriteIds.add(id);
+  renderGrid();
+}
+
 function matchesState(l){
+  if(l.status !== 'approved') return false;
   if(state.category!=='all' && l.category!==state.category) return false;
   if((state.category==='sublet'||state.category==='bachelor')){
     if(!state.gender) return false;
@@ -549,22 +830,48 @@ function matchesState(l){
   const q = document.getElementById('idSearch').value.trim().toLowerCase();
   if(q && !l.id.toLowerCase().includes(q)) return false;
   if(state.adv){
-    if(state.adv.bed && l.bed < parseInt(state.adv.bed)) return false;
-    if(state.adv.bath && l.bath < parseInt(state.adv.bath)) return false;
     if(state.adv.min && l.price < parseInt(state.adv.min)) return false;
     if(state.adv.max && l.price > parseInt(state.adv.max)) return false;
-    if(state.adv.lift && !l.lift) return false;
   }
   return true;
 }
 
+function computeMatchPercent(l, adv){
+  let total = 0, matched = 0;
+  if(adv.bed){ total++; if(l.bed >= parseInt(adv.bed)) matched++; }
+  if(adv.bath){ total++; if(l.bath >= parseInt(adv.bath)) matched++; }
+  if(adv.lift){ total++; if(l.lift) matched++; }
+  if(adv.parking){ total++; if(l.parking) matched++; }
+  if(adv.generator){ total++; if(l.generator) matched++; }
+  if(adv.gas){ total++; if(l.gasLine) matched++; }
+  if(adv.furnished){ total++; if(l.furnished) matched++; }
+  if(adv.balcony){ total++; if(l.balcony) matched++; }
+  if(adv.water){ total++; if(l.water247) matched++; }
+  if(adv.verifiedOnly){ total++; if(l.verified) matched++; }
+  if(total===0) return null;
+  return Math.round((matched/total)*100);
+}
+
 function renderGrid(){
-  let items = listings.filter(matchesState);
+  let items;
+  if(state.showFavorites){
+    items = listings.filter(l => l.status==='approved' && favoriteIds.has(l.id));
+  } else {
+    items = listings.filter(matchesState);
+  }
+
+  if(state.adv){
+    items = items.map(l => ({...l, matchPercent: computeMatchPercent(l, state.adv)}));
+    items = items.filter(l => l.matchPercent===null || l.matchPercent >= 30);
+    items.sort((a,b)=> (b.matchPercent||0) - (a.matchPercent||0));
+  }
   if(state.sort==='lowhigh') items.sort((a,b)=>a.price-b.price);
   if(state.sort==='highlow') items.sort((a,b)=>b.price-a.price);
+
   const grid = document.getElementById('grid');
   if(items.length===0){
-    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><div class="big">🏠</div>No listings match right now.</div>';
+    const msg = state.showFavorites ? 'No favorites saved yet — tap ♡ on any listing to save it here.' : 'No listings match right now.';
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;"><div class="big">🏠</div>${msg}</div>`;
     return;
   }
   grid.innerHTML = items.map(l=>`
@@ -572,25 +879,208 @@ function renderGrid(){
       <div class="card-img">
         <span class="price-tag">৳${l.price.toLocaleString()}</span>
         <span class="neg-tag">${l.pricing.charAt(0).toUpperCase()+l.pricing.slice(1)}</span>
-        <span class="fav-btn">♡</span>
+        <span class="fav-btn" onclick="toggleFavorite('${l.id}')">${favoriteIds.has(l.id) ? '♥' : '♡'}</span>
+        <button class="report-flag-btn" title="Report" onclick="openReport('${l.id}')">🚩</button>
+        <div class="badge-row">
+          ${l.verified ? '<span class="verified-badge">✓ Verified</span>' : ''}
+        </div>
       </div>
       <div class="card-body">
         <div class="card-title">${l.title}</div>
         <div class="card-loc">📍 ${l.loc}</div>
         <div class="prop-id">ID: ${l.id}</div>
         <div class="tag-row">${l.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        ${(l.matchPercent!==undefined && l.matchPercent!==null) ? `
+        <div class="match-row">
+          <span>Matches your criteria</span>
+          <span class="pct ${l.matchPercent<60?'low':''}">${l.matchPercent}%</span>
+        </div>` : ''}
       </div>
       <div class="card-actions">
-        <a class="btn btn-outline">Details</a>
-        <a class="btn btn-contact">Contact</a>
+        <a class="btn btn-outline" onclick="openDetails('${l.id}')">Details</a>
+        <a class="btn btn-contact" onclick="openContact('${l.id}')">Contact</a>
       </div>
     </div>
   `).join('');
 }
 
+function openDetails(id){
+  const l = listings.find(x=>x.id===id);
+  if(!l) return;
+  window.currentDetailsId = id;
+  const amenities = [
+    l.lift && 'Lift', l.parking && 'Parking', l.generator && 'Generator',
+    l.gasLine && 'Line Gas', l.furnished && 'Furnished', l.balcony && 'Balcony'
+  ].filter(Boolean);
+  const matchLine = (l.matchPercent!==undefined && l.matchPercent!==null)
+    ? `<div class="match-row" style="border-top:none;padding-top:0;margin-bottom:14px;"><span>Matches your criteria</span><span class="pct ${l.matchPercent<60?'low':''}">${l.matchPercent}%</span></div>`
+    : '';
+  const bachelorPolicy = (l.gateTime) ? `
+    <div><b>Gate Closing Time</b>${l.gateTime}</div>
+    <div><b>Guests Allowed</b>${l.guestsAllowed ? 'Yes' : 'No'}</div>` : '';
+  const fullStars = Math.round(l.rating);
+  const starDisplay = '★'.repeat(fullStars) + '☆'.repeat(5-fullStars);
+
+  const photos = (l.photos && l.photos.length) ? l.photos : ['linear-gradient(135deg,#8FA89C,#5C7A6C)'];
+  const isRealPhoto = (p) => p.startsWith('blob:') || p.startsWith('http');
+  const mainPhotoHtml = (p) => isRealPhoto(p) ? `<img src="${p}">` : `<div class="ph" style="background:${p};">Photo (demo)</div>`;
+  const thumbHtml = (p, idx) => isRealPhoto(p) ? `<img src="${p}">` : `<div class="ph" style="background:${p};">${idx+1}</div>`;
+
+  document.getElementById('detailsPageContent').innerHTML = `
+    <div class="gallery-main" id="galleryMain">${mainPhotoHtml(photos[0])}</div>
+    <div class="gallery-thumbs" id="galleryThumbs">
+      ${photos.map((p,idx)=>`<div class="thumb ${idx===0?'active':''}" onclick="switchGalleryPhoto(${idx})">${thumbHtml(p,idx)}</div>`).join('')}
+    </div>
+    <h2 style="margin-bottom:2px;">${l.title} ${l.verified ? '<span class="verified-badge" style="position:static;display:inline-flex;vertical-align:middle;">✓ Verified</span>' : ''}</h2>
+    <div class="sub" style="margin-bottom:6px;">📍 ${l.loc} · ID: ${l.id}</div>
+    <div class="rating-row"><span style="color:var(--gold-star,#C79A45);">${starDisplay}</span> <span class="score">${l.rating}</span> <span style="color:#9A927D;">(${l.reviewCount} reviews)</span></div>
+    <div style="margin-bottom:14px;"><span class="price-tag" style="position:static;display:inline-flex;">৳${l.price.toLocaleString()}</span></div>
+    ${matchLine}
+    ${l.hasVideo ? `<div class="tag" style="cursor:pointer;display:inline-block;margin-bottom:10px;" onclick="document.getElementById('videoPreview').classList.toggle('show')">▶ Watch 30s Walkthrough Video</div>` : ''}
+    <div class="video-preview" id="videoPreview">🎥 Video preview (demo placeholder)</div>
+    <div class="details-grid">
+      <div><b>Category</b>${l.category.charAt(0).toUpperCase()+l.category.slice(1)}${l.gender ? ' · '+l.gender.charAt(0).toUpperCase()+l.gender.slice(1) : ''}</div>
+      <div><b>Pricing Type</b>${l.pricing.charAt(0).toUpperCase()+l.pricing.slice(1)}</div>
+      <div><b>Bedrooms</b>${l.bed}</div>
+      <div><b>Bathrooms</b>${l.bath}</div>
+    </div>
+    <div class="details-amenities">${amenities.map(a=>`<span class="tag">${a}</span>`).join('') || '<span class="tag">No extra amenities listed</span>'}</div>
+    <h2 style="font-size:15px;margin:0 0 8px;">Utilities &amp; Policies</h2>
+    <div class="util-grid">
+      <div><b>Gas Service</b>${l.gasType}</div>
+      <div><b>Water Supply</b>${l.water247 ? '24/7 Available' : 'Limited Hours'}</div>
+      <div><b>Generator Backup</b>${l.generator ? 'Yes' : 'No'}</div>
+      <div><b>Lift</b>${l.lift ? 'Yes' : 'No'}</div>
+      ${bachelorPolicy}
+    </div>
+    <button class="modal-submit" onclick="openVisit();">📅 Schedule a Visit</button>
+    <button class="btn btn-contact" style="width:100%;margin-top:10px;padding:11px;" onclick="openContact('${l.id}');">Contact Landowner</button>
+    <button class="btn btn-outline" style="width:100%;margin-top:10px;padding:11px;" onclick="openReview();">★ Write a Review</button>
+    <div class="modal-switch" style="margin-top:12px;"><a onclick="openModal('compareModal'); document.getElementById('cmp-id1').value='${l.id}';">Add to Compare</a> &nbsp;|&nbsp; <a onclick="openReport('${l.id}');">Report this listing</a></div>
+  `;
+  document.getElementById('mainView').style.display = 'none';
+  document.getElementById('detailsPage').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function switchGalleryPhoto(idx){
+  const l = listings.find(x=>x.id===window.currentDetailsId);
+  if(!l) return;
+  const photos = (l.photos && l.photos.length) ? l.photos : ['linear-gradient(135deg,#8FA89C,#5C7A6C)'];
+  const p = photos[idx];
+  const isRealPhoto = p.startsWith('blob:') || p.startsWith('http');
+  document.getElementById('galleryMain').innerHTML = isRealPhoto(p) ? `<img src="${p}">` : `<div class="ph" style="background:${p};">Photo (demo)</div>`;
+  document.querySelectorAll('#galleryThumbs .thumb').forEach((t,i)=> t.classList.toggle('active', i===idx));
+}
+
+function backToListings(){
+  document.getElementById('detailsPage').style.display = 'none';
+  document.getElementById('mainView').style.display = 'block';
+  window.scrollTo(0,0);
+}
+
+function openVisit(){ openModal('visitModal'); }
+
+function openReview(){ openModal('reviewModal'); }
+
+function openReport(id){
+  window.reportTargetId = id;
+  openModal('reportModal');
+}
+
+function submitReport(type){
+  const msg = type === 'rented'
+    ? 'Thanks — we have flagged this as possibly already rented.'
+    : 'Thanks — we have flagged this as possibly fake. Our team will review it.';
+  alert(msg + ' (Demo only — after enough reports, listings are hidden automatically.)');
+  closeModal('reportModal');
+}
+
+function openContact(id){
+  window.contactTargetId = id;
+  document.getElementById('contactBody').innerHTML = `
+    <div class="masked-number">01712-345656</div>
+    <a class="modal-submit" style="display:block;text-align:center;text-decoration:none;" href="tel:01712345656">Call Now</a>
+  `;
+  openModal('contactModal');
+}
+
+function togglePostFields(){
+  const cat = document.getElementById('post-category').value;
+  const isGendered = (cat === 'bachelor' || cat === 'sublet');
+  document.getElementById('post-gender-wrap').style.display = isGendered ? 'block' : 'none';
+  document.getElementById('post-bachelor-policy').style.display = isGendered ? 'grid' : 'none';
+}
+
+function submitPost(){
+  const title = document.getElementById('post-title').value.trim();
+  const price = parseInt(document.getElementById('post-price').value);
+  const location = document.getElementById('post-location').value;
+  const outsidePhoto = document.getElementById('post-outside-photo').files.length;
+  if(!title || !price){
+    alert('Please add at least a title and rent amount.');
+    return;
+  }
+  if(!outsidePhoto){
+    alert('Please upload a photo of the building from outside — this is required.');
+    return;
+  }
+  const category = document.getElementById('post-category').value;
+  const isGendered = (category === 'bachelor' || category === 'sublet');
+  const newId = 'SHR-' + (10600 + listings.length);
+  const gasType = document.getElementById('post-gastype').value;
+  const newListing = {
+    id: newId,
+    title: title,
+    loc: location + ', Dhaka',
+    location: location,
+    price: price,
+    pricing: document.getElementById('post-pricing').value,
+    category: category,
+    gender: isGendered ? document.getElementById('post-gender').value : null,
+    bed: parseInt(document.getElementById('post-bed').value) || 1,
+    bath: parseInt(document.getElementById('post-bath').value) || 1,
+    lift: document.getElementById('post-lift').checked,
+    parking: document.getElementById('post-parking').checked,
+    generator: document.getElementById('post-generator').checked,
+    gasLine: gasType === 'Line Gas',
+    gasType: gasType,
+    furnished: document.getElementById('post-furnished').checked,
+    balcony: document.getElementById('post-balcony').checked,
+    water247: document.getElementById('post-water').checked,
+    gateTime: isGendered ? (document.getElementById('post-gatetime').value || null) : null,
+    guestsAllowed: isGendered ? document.getElementById('post-guests').checked : null,
+    status: 'pending',
+    verified: false,
+    rating: '0.0',
+    reviewCount: 0,
+    hasVideo: false,
+    photos: [
+      URL.createObjectURL(document.getElementById('post-outside-photo').files[0]),
+      ...Array.from(document.getElementById('post-other-photos').files).map(f => URL.createObjectURL(f))
+    ],
+    tags: [category.charAt(0).toUpperCase()+category.slice(1)].concat(isGendered ? [document.getElementById('post-gender').value.charAt(0).toUpperCase()+document.getElementById('post-gender').value.slice(1)] : [])
+  };
+  listings.unshift(newListing);
+  closeModal('postModal');
+  setCategory('all');
+  document.getElementById('sortSelect').value = '';
+  state.sort = '';
+  state.location = '';
+  document.getElementById('locationSelect').value = '';
+  renderGrid();
+  alert('Thanks! Your post (ID: ' + newId + ') has been submitted for admin review. It will go live on the site once approved — this usually takes up to 24 hours.');
+}
+
 function openModal(id){ document.getElementById(id).classList.add('show'); }
 function closeModal(id){ document.getElementById(id).classList.remove('show'); }
 function switchModal(from,to){ closeModal(from); openModal(to); }
+
+document.getElementById('starPicker').addEventListener('click', function(e){
+  if(e.target.tagName !== 'SPAN') return;
+  const v = parseInt(e.target.dataset.v);
+  [...this.children].forEach((s,i)=> s.classList.toggle('on', i < v));
+});
 
 function runCompare(){
   const id1 = document.getElementById('cmp-id1').value.trim().toUpperCase();
